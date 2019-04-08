@@ -20,7 +20,7 @@ public class OrganisationDashBoard {
         boolean status = (new FieldValidation()).emailIDValidation(emailID);
         if(status) {
             organisationEmployee.updateCountOfEmployees();
-            String empID = (new FieldGeneration()).employeeIDGeneration();
+            String empID = (FieldGeneration.getInstance()).employeeIDGeneration();
             organisationEmployee.setEmpID(empID);
             organisationEmployee.setEmpName(empName);
             organisationEmployee.setDepartmentType(departmentType);
