@@ -1,18 +1,17 @@
 import models.OrganisationDashBoard;
-import models.OrganisationEmployee;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import services.EmployeeExistence;
 import services.EventPermissionChecker;
 import services.FieldValidation;
-import utils.DepartmentNameUtility;
-import utils.EmployeeTypeUtility;
+import utils.DepartmentName;
+import utils.EmployeeType;
 import utils.EventPermission;
 
 public class TestOrganisationSample {
     @Before
      public void init() throws Exception {
+        /*
         OrganisationDashBoard object1 = new OrganisationDashBoard();
         OrganisationDashBoard object2 = new OrganisationDashBoard();
         OrganisationDashBoard object3 = new OrganisationDashBoard();
@@ -20,6 +19,16 @@ public class TestOrganisationSample {
         object1.addNewEmployee("Varun Nayal", EmployeeTypeUtility.ADMIN, DepartmentNameUtility.ENGINEERING, "8007682909", "varun.nayal@hashmapinc.com");
         object2.addNewEmployee("Ved Pal", EmployeeTypeUtility.NONADMIN, DepartmentNameUtility.MANAGEMENT, "8007830506", "vedprakash.pal@hashmapinc.com");
         object3.addNewEmployee("Abhilash Reddy", EmployeeTypeUtility.NONADMIN, DepartmentNameUtility.CONSULTANCY, "8007817150", "abhilashreddyy1@gmail.com");
+
+         */
+
+        OrganisationDashBoard objectArray[] = new OrganisationDashBoard[3];
+        objectArray[0] = new OrganisationDashBoard();
+        objectArray[1] = new OrganisationDashBoard();
+        objectArray[2] = new OrganisationDashBoard();
+        objectArray[0].addNewEmployee("Varun Nayal", EmployeeType.ADMIN, DepartmentName.ENGINEERING, "8007682909", "varun.nayal@hashmapinc.com");
+        objectArray[1].addNewEmployee("Ved Pal", EmployeeType.NONADMIN, DepartmentName.MANAGEMENT, "8007830506", "vedprakash.pal@hashmapinc.com");
+        objectArray[2].addNewEmployee("Abhilash Reddy", EmployeeType.NONADMIN, DepartmentName.CONSULTANCY, "8007817150", "abhilashreddyy1@gmail.com");
 
         /*
         object1.printDetailsOfEmployee();
@@ -48,8 +57,8 @@ public class TestOrganisationSample {
     @Test
     public void testEmployeeExistence1() {
         String empIdToBeCheckedForExistence = "Emp1";
-        EmployeeExistence employeeExistence = new EmployeeExistence();
-        boolean status = employeeExistence.isEmployeeExist(empIdToBeCheckedForExistence);
+        OrganisationDashBoard organisationDashBoard = new OrganisationDashBoard();
+        boolean status = organisationDashBoard.isEmployeeExist(empIdToBeCheckedForExistence);
         Assert.assertEquals(true,status);
 
     }
@@ -57,14 +66,14 @@ public class TestOrganisationSample {
     @Test
     public void testEventPermissionChecker1() {
         EventPermissionChecker eventPermissionChecker = new EventPermissionChecker();
-        EventPermission eventPermission = eventPermissionChecker.checkEventPermission(EmployeeTypeUtility.ADMIN,DepartmentNameUtility.CONSULTANCY);
+        EventPermission eventPermission = eventPermissionChecker.checkEventPermission(EmployeeType.ADMIN,DepartmentName.CONSULTANCY);
         Assert.assertEquals(EventPermission.YES,eventPermission);
     }
 
     @Test
     public void testEventPermissionChecker2() {
         EventPermissionChecker eventPermissionChecker = new EventPermissionChecker();
-        EventPermission eventPermission = eventPermissionChecker.checkEventPermission(EmployeeTypeUtility.NONADMIN,DepartmentNameUtility.CONSULTANCY);
+        EventPermission eventPermission = eventPermissionChecker.checkEventPermission(EmployeeType.NONADMIN,DepartmentName.CONSULTANCY);
         Assert.assertEquals(EventPermission.NO,eventPermission);
     }
 

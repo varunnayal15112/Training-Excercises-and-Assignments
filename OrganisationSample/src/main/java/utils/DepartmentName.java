@@ -1,5 +1,5 @@
 package utils;
 
-public enum DepartmentNameUtility {
+public enum DepartmentName {
     CONSULTANCY, ENGINEERING, MANAGEMENT
 }

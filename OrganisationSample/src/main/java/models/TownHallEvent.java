@@ -1,9 +1,9 @@
 package models;
 
 import lombok.Data;
-import utils.DepartmentNameUtility;
+import utils.DepartmentName;
 import utils.EmployeeCategory;
-import utils.EmployeeTypeUtility;
+import utils.EmployeeType;
 import utils.EventPermission;
 
 import java.util.HashMap;
@@ -15,12 +15,12 @@ public class TownHallEvent {
     private static Map<EmployeeCategory, EventPermission> townHallEventPermission = new HashMap<EmployeeCategory,EventPermission>();
 
     public TownHallEvent() {
-        townHallEventPermission.put((new EmployeeCategory(EmployeeTypeUtility.ADMIN, DepartmentNameUtility.CONSULTANCY)),EventPermission.YES);
-        townHallEventPermission.put((new EmployeeCategory(EmployeeTypeUtility.ADMIN, DepartmentNameUtility.ENGINEERING)),EventPermission.NO);
-        townHallEventPermission.put((new EmployeeCategory(EmployeeTypeUtility.ADMIN, DepartmentNameUtility.MANAGEMENT)),EventPermission.YES);
-        townHallEventPermission.put((new EmployeeCategory(EmployeeTypeUtility.NONADMIN, DepartmentNameUtility.CONSULTANCY)),EventPermission.NO);
-        townHallEventPermission.put((new EmployeeCategory(EmployeeTypeUtility.NONADMIN, DepartmentNameUtility.ENGINEERING)),EventPermission.YES);
-        townHallEventPermission.put((new EmployeeCategory(EmployeeTypeUtility.NONADMIN, DepartmentNameUtility.MANAGEMENT)),EventPermission.YES);
+        townHallEventPermission.put((new EmployeeCategory(EmployeeType.ADMIN, DepartmentName.CONSULTANCY)),EventPermission.YES);
+        townHallEventPermission.put((new EmployeeCategory(EmployeeType.ADMIN, DepartmentName.ENGINEERING)),EventPermission.NO);
+        townHallEventPermission.put((new EmployeeCategory(EmployeeType.ADMIN, DepartmentName.MANAGEMENT)),EventPermission.YES);
+        townHallEventPermission.put((new EmployeeCategory(EmployeeType.NONADMIN, DepartmentName.CONSULTANCY)),EventPermission.NO);
+        townHallEventPermission.put((new EmployeeCategory(EmployeeType.NONADMIN, DepartmentName.ENGINEERING)),EventPermission.YES);
+        townHallEventPermission.put((new EmployeeCategory(EmployeeType.NONADMIN, DepartmentName.MANAGEMENT)),EventPermission.YES);
     }
 
     public Map<EmployeeCategory, EventPermission> getTownHallEventPermission() {

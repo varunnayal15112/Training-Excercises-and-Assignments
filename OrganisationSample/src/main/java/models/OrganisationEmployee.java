@@ -1,15 +1,15 @@
 package models;
 
 import lombok.Data;
-import utils.DepartmentNameUtility;
-import utils.EmployeeTypeUtility;
+import utils.DepartmentName;
+import utils.EmployeeType;
 
 @Data
 public class OrganisationEmployee {
 
     private String empID, empName,empEmailID,empContactNo;
-    private DepartmentNameUtility departmentType;
-    private EmployeeTypeUtility employeeType;
+    private DepartmentName departmentType;
+    private EmployeeType employeeType;
     private static int countOfEmployees = 0;
 
     public int getCountOfEmployees() {
